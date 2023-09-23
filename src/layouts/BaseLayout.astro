@@ -1,0 +1,71 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+		<link href="./fontawesome/css/fontawesome.css" rel="stylesheet">
+  	<link href="./fontawesome/css/brands.css" rel="stylesheet">
+  	<link href="./fontawesome/css/solid.css" rel="stylesheet">
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | Allora Pizza Co.</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global lang="scss">
+	body, html{
+    margin:0;
+    padding:0;
+}
+	body {
+		min-width: 320px;
+		min-height: 100vh;
+		font-family: $font-primary;
+		background: $bg;
+		color: $primary;
+		font-size: $font-size;
+	}
+
+	.flex-row {
+    display: flex;
+    flex-direction: row;
+    margin: $margin-lg 0;
+		@media only screen and (max-width: $tablet-sm) {
+     flex-direction: column;
+    }
+  }
+  .flex-1 {
+    flex: 1;
+    margin: $margin;
+  }
+	.text-center {
+    text-align: center;
+  }
+
+	.content-container {
+    max-width: $max-width;
+    margin: auto;
+    padding: $padding-xxl;
+    box-sizing: border-box;
+    @media only screen and (max-width: $tablet-sm) {
+      padding: $padding-xl;
+    }
+    @media only screen and (max-width: $mobile) {
+      padding-left: $padding-xs;
+      padding-right: $padding-xs;
+    }
+  }
+
+</style>

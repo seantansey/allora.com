@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+---
+
+<BaseLayout title="Home">
+  <div class="landing-page">
+    <div class="mask">
+      <h1>Damn.<br>Good.<br>Pies.</h1>
+      <p>Made by a <span class="real">REAL</span> Italian!</p>
+      <p class="green">&#127470;&#127481; Soy muy Italiano!!</p>
+    </div> 
+    <Navbar />
+  </div>
+</BaseLayout>
+
+<script async src="https://www.instagram.com/embed.js"></script>
+
+<style lang="scss">
+  .landing-page {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("./images/pizza_class.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    .mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba($primary, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      h1 {
+        color: $tertiary;
+        font-family: $font-tertiary;
+        font-size: 180px;
+        text-align: right;
+        line-height: 160px;
+        margin: 100px 100px 0;
+      }
+      p {
+        color: $tertiary;
+        font-family: $font-secondary;
+        font-size: $font-size-lg;
+        text-align: left;
+        margin: 0 $margin-xl 0;
+        .real {
+          font-size: $font-size-xl;
+          font-family: $font-tertiary;
+        }
+        &.green {
+          color: $secondary;
+        }
+      }
+    }
+  }
+
+
+ 
+
+</style>

@@ -1,0 +1,73 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { menuItems } from '../configs/menu.ts';
+import MenuItem from '../components/MenuItem.astro';
+
+---
+
+<PageLayout title="Menu" subtitle="Menú" hero="IMG_7749.jpeg"> 
+  <div class="content-container">
+    <div class="background"></div>
+    <div class="background-2"></div>
+    <h2>The Pies</h2>
+    <div class="divider"></div>
+    <p class="text-center">All of our pies are made with the finest maticulously sourced ITALIAN ingredients!</p>
+    <div class="flex-row">
+      {menuItems.map(item => (
+       <MenuItem item={item} />
+      ))}
+    </div>
+    <h2>The Add-ons</h2>
+    <div class="divider"></div>
+    <p class="text-center">Everything tastes better with a little drizzy drizz...</p>
+    <h2>The Desserts</h2>
+    <div class="divider"></div>
+  </div>
+</PageLayout>
+
+<style lang="scss">
+  .background {
+    position: absolute;
+    top: 1000px;
+    left: -500px;
+    background: rgba($quaternary, 0.05);
+    height: 1000px;
+    width: 1000px;
+    border-radius: 500px;
+    z-index: -1;
+  }
+  .background-2 {
+    position: absolute;
+    top: -200px;
+    right: -300px;
+    background: rgba($secondary, 0.1);
+    height: 1000px;
+    width: 1000px;
+    border-radius: 500px;
+    z-index: -1;
+  }
+  h2 {
+    font-family: $font-tertiary;
+    font-size: $font-size-lg;
+    margin: 0;
+    text-align: center;
+    // background: $secondary;
+    // padding: $padding-sm;
+    // color: $tertiary;
+  }
+  p {
+    margin: $margin-lg;
+  }
+  :global(.flex-row) {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .divider {
+    margin: $margin-sm 0;
+    height: 1px;
+    width: 100%;
+    background-color: $quaternary;
+  }
+
+</style>

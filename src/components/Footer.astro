@@ -1,0 +1,50 @@
+<footer>
+    <div class="copyright">© 2023 Allora Pizza Co | All rights reserved</div>
+    <div class="copyright">This site is powered by Astro JS</div>
+    <div>
+      <a href="tel:9179923826">
+        <i class="fa-solid fa-phone"></i>
+      </a>
+      <a href="mailto:ciao@allorapizzaco.com">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+      <a href="https://www.facebook.com/people/Allora-Pizza-Co/100092748507302/?mibextid=LQQJ4d" target ="_blank">
+        <i class="fa-brands fa-facebook"></i>
+      </a>
+      <a href="https://www.instagram.com/allorapizzaco/" target ="_blank">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+    </div>
+</footer>
+
+<style lang="scss">
+  footer {
+    border-top: 1px solid rgba($quaternary, 0.1);
+    padding: $padding-lg $padding-sm $padding $padding-sm;
+    text-align: center;
+
+      a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        height: 35px;
+        width: 35px;
+        border-radius: 20px;
+        background: $tertiary;
+        text-decoration: none;
+        margin: 0 $margin-sm;
+      }
+      i {
+        text-align: center;
+        color: $secondary;
+        font-size: 18px;
+      }
+
+    
+
+    .copyright {
+      margin: $margin-xs;
+      font-size: $font-size-sm;
+    }
+  }
+</style>

@@ -1,0 +1,63 @@
+---
+import { type MenuItem } from '../configs/menu';
+
+interface Props {
+	item: MenuItem
+}
+
+const { item: { title, price, ingredients, img} } = Astro.props;
+---
+
+<div class="menu-item">
+  <img src={`./images/${img}`}/>
+  <div class="menu-text">
+    <span class="price">${price}</span>
+    <h3>{title}</h3>
+    <p>{ingredients}</p>
+  </div>
+</div>
+
+<style lang="scss">
+  .menu-item {
+    position: relative;
+    background: white;
+    margin: $margin $margin-xs;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 300px;
+    box-shadow: 0 2px 2px 0 rgba(black, 0.05);
+
+    img {
+      width: 100%;
+    }
+    .menu-text {
+      padding: $padding-sm $padding $padding;
+      h3 {
+        font-family: $font-tertiary;
+        font-size: $font-size-xl;
+        margin: 0;
+        margin-bottom: $margin-xs;
+      }
+      p {
+        margin: 0;
+        font-size: $font-size-sm;
+      }
+      .price {
+        position: absolute;
+        top: 265px;
+        right: -10px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background: $secondary;
+        height: 50px;
+        width: 50px;
+        border-radius: 25px;
+        font-family: $font-secondary;;
+        font-size: $font-size-lg;
+        color: $tertiary;
+        margin-right: $margin;
+      }
+    }
+  }
+</style>

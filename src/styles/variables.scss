@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Yellowtail');
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue');
+
+
+// For Shared Variables accross the site
+$base-rem: 16;
+
+@function strip-unit($num) {
+  @return calc($num / ($num * 0 + 1));
+}
+
+@function rem-calc($value, $base-value: $base-rem) {
+  $value: calc(strip-unit($value) / strip-unit($base-value)) * 1rem;
+  @if ($value == 0rem) {
+    $value: 0;
+  } // Turn 0rem into 0
+  @return $value;
+}
+
+// breakpoints
+$mobile: 480px;
+$tablet-sm: 768px;
+$tablet-lg: 1024px;
+
+$font-primary: 'Poppins';
+$font-secondary: 'Yellowtail';
+$font-tertiary: 'Bebas Neue';
+
+// font size
+$font-size-xs: rem-calc(12);
+$font-size-sm: rem-calc(14);
+$font-size: rem-calc(16);
+$font-size-lg: rem-calc(30);
+$font-size-xl: rem-calc(50);
+$font-size-hero-subtitle-sm: rem-calc(25);
+$font-size-hero-subtitle: rem-calc(30);
+$font-size-hero-sm: rem-calc(90);
+$font-size-hero: rem-calc(120);
+
+// font-weight
+$font-regular: 400;
+$font-medium: 500;
+$font-bold: 700;
+
+// margins
+$margin-xs: rem-calc(5);
+$margin-sm: rem-calc(10);
+$margin: rem-calc(20);
+$margin-lg: rem-calc(30);
+$margin-xl: rem-calc(60);
+$margin-xxl: rem-calc(80);
+
+// padding
+$padding-xs: rem-calc(5);
+$padding-sm: rem-calc(10);
+$padding: rem-calc(20);
+$padding-lg: rem-calc(30);
+$padding-xl: rem-calc(60);
+$padding-xxl: rem-calc(80);
+
+// constants
+// $navbar-height: 65px;
+// $footer-height: 133px;
+$max-width: 1200px;
+
+// colors
+$primary: #0a0a0a; 
+$primary-lighter: #171717;
+$secondary: #f32c0c; 
+$tertiary: #f9f8f3; 
+$quaternary: #447116;
+$bg: #f9f8f3; 
+

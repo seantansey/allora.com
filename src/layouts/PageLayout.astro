@@ -1,0 +1,80 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string
+  subtitle?: string 
+  hero: string
+}
+const { hero, title, subtitle } = Astro.props;
+---
+<BaseLayout title={title}>
+  <Navbar />
+  <main>
+    <section class="page-hero" style={`background-image: url(./images/${hero}`}>
+      <div class="page-hero-mask">
+        <h1>{title}</h1>
+        {subtitle && <p class="text-center">&#127470;&#127481; {subtitle} &#127470;&#127481;</p>}
+      </div>
+      <p></p>
+    </section>
+    <section class="page-content">
+      <slot />
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+
+<style lang="scss">
+.page {
+  &-hero {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 400px;
+    &-mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: $tertiary;
+      background: rgba($primary, 0.6);
+    }
+    h1 {
+      font-family: $font-tertiary;
+      font-size: $font-size-hero;
+      color: $tertiary;
+      margin: 0;
+      @media only screen and (max-width: $tablet-sm) {
+        font-size: $font-size-hero-sm;
+      }
+    }
+    p {
+      position: absolute;
+      font-size: $font-size-hero-subtitle;
+      bottom: 60px;
+      @media only screen and (max-width: $tablet-sm) {
+        bottom: 90px;
+        font-size: $font-size-hero-subtitle-sm;
+      }
+    }
+  }
+  &-content {
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+
+
+
+</style>

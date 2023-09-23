@@ -1,0 +1,177 @@
+<header>
+  <nav>
+    <a href="/">
+      <img class="logo" src="./images/logo_white.svg"/>
+      <img class="logo-extended" src="./images/logo_red.svg"/>
+    </a>
+    <div class="links">
+      <a href="/about">About</a>
+      <a href="/locations">Locations</a>
+      <a href="/catering">Catering</a>
+      <a href="/menu">Menu</a>
+    </div>
+    <button class="menu-button">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="navbar-extended">
+      <div class="links-extended">
+        <a href="/about">About</a>
+        <a href="/locations">Locations</a>
+        <a href="/catering">Catering</a>
+        <a href="/menu">Menu</a>
+        <div class="social-links">
+          <a href="tel:9179923826">
+            <i class="fa-solid fa-phone"></i>
+          </a>
+          <a href="mailto:ciao@allorapizzaco.com">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="https://www.facebook.com/people/Allora-Pizza-Co/100092748507302/?mibextid=LQQJ4d" target ="_blank">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="https://www.instagram.com/allorapizzaco/" target ="_blank">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const [ menu ] = document.getElementsByClassName('menu-button')
+  const [ navbar ] = document.getElementsByClassName('navbar-extended')
+
+  const toggleMenu = () => {
+    if (navbar?.classList.contains('visible')) {
+      navbar.classList.remove('visible')
+      return
+    }
+    navbar?.classList.add('visible')
+  }
+  menu?.addEventListener('click', () => {
+    toggleMenu()
+  })
+</script>
+
+<style lang="scss">
+  nav {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    width: 100%;
+    padding: 0 $padding-lg;
+    color: $tertiary;
+    z-index: 1;
+    box-sizing: border-box;
+
+    @media only screen and (max-width: $tablet-sm) {
+      background: $tertiary;
+      position: fixed;
+      padding: 0 $padding;
+      height: 70px;
+    }
+    @media only screen and (max-width: $mobile) {
+      padding: 0 $padding-sm;
+    }
+    img {
+      height: 80px;
+      @media only screen and (max-width: $tablet-sm) {
+        height: 54px;
+        color: $secondary;
+      }
+    }
+    .logo {
+      @media only screen and (max-width: $tablet-sm) {
+        display: none;
+      }
+    }
+    .logo-extended {
+      display: none;
+      @media only screen and (max-width: $tablet-sm) {
+        display: block;
+      }
+    }
+    .links {
+      @media only screen and (max-width: $tablet-sm) {
+        display: none;
+      }
+      a {
+        color: $tertiary;
+        margin: 0 $margin;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+          text-decoration-color: $secondary;
+          text-decoration-thickness: 2px;
+          text-underline-offset: 5px;
+        }
+      }
+    }
+    .menu-button {
+      display: none;
+      background: transparent;
+      font-size: 20px;
+      color: $secondary;
+      border: none;
+      &:hover {
+        cursor: pointer;
+      }
+      @media only screen and (max-width: $tablet-sm) {
+        display: block;
+      }
+    }
+    .navbar-extended {
+      visibility: hidden;
+      display: none;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      z-index: 2;
+      font-weight: $font-medium;
+      box-sizing: border-box;
+      height: calc(100vh - 70px);
+      background: $bg;
+      @media only screen and (max-width: $tablet-sm) {
+        display: block;
+      }
+ 
+      .links-extended {
+        max-width: 288px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 1.875rem auto;
+        a {
+          display: block;
+          color: $primary;
+          padding: $padding-xs 0;
+          text-decoration: none;
+          font-size: $font-size-sm;
+          border-bottom: 1px solid $secondary;
+          // background: rgba($primary, 0.9);
+          &:hover {
+            color: $secondary;
+          }
+        }
+        .social-links {
+          display: flex;
+          justify-content: center;
+          a {
+            font-size: 18px;
+            display: inline;
+            color: $secondary;
+            border-bottom: none;
+            margin: $margin;
+          }
+        }
+      }
+    }
+    .visible {
+      visibility: visible;
+    }
+  }
+</style>
